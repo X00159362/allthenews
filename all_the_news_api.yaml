@@ -1,0 +1,33 @@
+openapi: '3.0.3'
+info:
+  description: 'This is the first TUDTC MSc in DevOps EADes microservices example. '
+  version: 1.0.0
+  title: The EADes News
+  termsOfService: 'https://jelena-vk-itt.github.io/jvk-tudt-notes/eades/res/files/terms.html'
+  contact:
+    email: jvkitt@gmail.com
+  license:
+    name: No license
+    url: 'https://jelena-vk-itt.github.io/jvk-tudt-notes/eades/res/files/licence.html'
+paths:
+  /allthenews:
+    get:
+      tags:
+        - news
+      summary: Gets all the news
+      description: ''
+      operationId: getAllNews
+      parameters:
+        - name: style
+          in: query
+          description: How the news will be displayed
+          required: true
+          schema:
+              type: string
+              enum:
+                - plain
+                - blackandwhite
+                - colourful
+      responses:
+        '405':
+          description: Invalid input
